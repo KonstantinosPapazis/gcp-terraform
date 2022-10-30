@@ -1,7 +1,7 @@
 resource "google_compute_forwarding_rule" "default" {
   provider              = google-beta
   project               = var.project_id
-  name                  = "test-kostas-lb"
+  name                  = "tcp-loadbalancer"
   target                = google_compute_target_pool.default.self_link
   load_balancing_scheme = "EXTERNAL"
   port_range            = 80
