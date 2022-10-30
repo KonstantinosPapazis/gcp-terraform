@@ -13,5 +13,6 @@ resource "google_compute_instance" "default" {
     subnetwork = module.vpc.subnets_names[0] #subnets[0] #.0 #[0]
   }
   tags = ["health-check", "ssh"]
+  metadata_startup_script = "sudo apt update; sudo apt install -y nginx;"
   depends_on = [module.vpc]
 }
