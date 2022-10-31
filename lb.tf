@@ -18,11 +18,13 @@ resource "google_compute_target_pool" "default" {
   region                = var.region
 
   instances = [
-    google_compute_instance.default.self_link
+    google_compute_instance.vm1.self_link,
+    google_compute_instance.vm2.self_link
   ]
 
   depends_on = [
-    google_compute_instance.default
+    google_compute_instance.vm1,
+    google_compute_instance.vm2
   ]
 }
 

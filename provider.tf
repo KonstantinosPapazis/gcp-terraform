@@ -1,9 +1,9 @@
 provider "google" {
-  project = "coastal-dynamo-367018"  // Put your Project ID here
+  project = "coastal-dynamo-367018" 
 }
 
 provider "google-beta" {
-  project = "coastal-dynamo-367018"  // Put your Project ID here
+  project = "coastal-dynamo-367018" 
 }
 
 terraform {
