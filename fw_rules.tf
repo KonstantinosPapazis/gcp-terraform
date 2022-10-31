@@ -26,3 +26,17 @@ resource "google_compute_firewall" "allow-ingress-from-http" {
   source_ranges   = ["0.0.0.0/0"]
   depends_on = [module.vpc]
 }
+
+resource "google_compute_firewall" "allow-interssh" {
+  name        = "allow-ininterssh"
+  network     = module.vpc.network_self_link
+  description = "Firewall rules to allow ssh"
+
+  allow {
+    protocol = "tcp"
+    ports    = ["22"]
+  }
+
+  source_ranges   = ["10.10.10.0/24"]
+  depends_on = [module.vpc]
+}

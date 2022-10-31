@@ -33,5 +33,12 @@ resource "google_compute_instance" "vm2" {
   }
   tags = ["health-check", "ssh"]
   metadata_startup_script = "sudo apt update; sudo apt install -y nginx;"
+
+  service_account {
+    # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
+    email  = google_service_account.custom-compute.email
+    scopes = ["cloud-platform"]
+  }
+
   depends_on = [module.vpc]
 }
