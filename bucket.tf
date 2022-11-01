@@ -10,12 +10,27 @@ resource "google_service_account" "custom-disk" {
 
 #One way to assign iam to a bucket
 
+#resource "google_storage_bucket_iam_binding" "binding" {
+#  bucket = google_storage_bucket.bucket1.name
+#  role = "roles/storage.admin"
+#  members = [
+#    "serviceAccount:${google_service_account.custom-disk.email}",
+#    #"user:kpapazis84@gmail.com",
+#  ]
+#  depends_on = [
+#    google_service_account.custom-disk
+#  ]
+#}
+
 resource "google_storage_bucket_iam_binding" "binding" {
   bucket = google_storage_bucket.bucket1.name
-  role = "roles/storage.admin"
+  role = google_project_iam_custom_role.list-buckets-role.id
   members = [
     "serviceAccount:${google_service_account.custom-disk.email}",
-    "user:kpapazis84@gmail.com",
+    #"user:kpapazis84@gmail.com",
+  ]
+  depends_on = [
+    google_service_account.custom-disk
   ]
 }
 

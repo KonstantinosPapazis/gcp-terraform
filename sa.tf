@@ -12,4 +12,8 @@ resource "google_project_iam_member" "member-role" {
   role    = each.key
   member  = "serviceAccount:${google_service_account.custom-compute.email}"
   project = var.project_id
+
+  depends_on = [
+    google_service_account.custom-compute
+  ]
 }
