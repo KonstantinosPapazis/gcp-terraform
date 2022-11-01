@@ -9,8 +9,8 @@ resource "google_compute_firewall" "allow-ingress-from-iap" {
     ports    = ["22"]
   }
 
-  source_ranges   = ["35.235.240.0/20"]
-  depends_on = [module.vpc]
+  source_ranges = ["35.235.240.0/20"]
+  depends_on    = [module.vpc]
 }
 
 resource "google_compute_firewall" "allow-ingress-from-http" {
@@ -23,8 +23,8 @@ resource "google_compute_firewall" "allow-ingress-from-http" {
     ports    = ["80"]
   }
 
-  source_ranges   = ["0.0.0.0/0"]
-  depends_on = [module.vpc]
+  source_ranges = ["0.0.0.0/0"]
+  depends_on    = [module.vpc]
 }
 
 resource "google_compute_firewall" "allow-interssh" {
@@ -37,6 +37,6 @@ resource "google_compute_firewall" "allow-interssh" {
     ports    = ["22"]
   }
 
-  source_ranges   = ["10.10.10.0/24"]
-  depends_on = [module.vpc]
+  source_ranges = ["10.10.10.0/24"]
+  depends_on    = [module.vpc]
 }

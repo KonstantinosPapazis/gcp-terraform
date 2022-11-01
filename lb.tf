@@ -6,7 +6,7 @@ resource "google_compute_forwarding_rule" "default" {
   load_balancing_scheme = "EXTERNAL"
   port_range            = 80
   region                = var.region
-  ip_protocol           = "TCP" 
+  ip_protocol           = "TCP"
 
   depends_on = [
     google_compute_target_pool.default
@@ -14,8 +14,8 @@ resource "google_compute_forwarding_rule" "default" {
 }
 
 resource "google_compute_target_pool" "default" {
-  name = "vm-pool"
-  region                = var.region
+  name   = "vm-pool"
+  region = var.region
 
   instances = [
     google_compute_instance.vm1.self_link,

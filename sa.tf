@@ -9,7 +9,7 @@ resource "google_project_iam_member" "member-role" {
     "roles/compute.admin",
     "roles/storage.admin",
   ])
-  role = each.key
-  member = "serviceAccount:${google_service_account.custom-compute.email}"
+  role    = each.key
+  member  = "serviceAccount:${google_service_account.custom-compute.email}"
   project = var.project_id
 }
