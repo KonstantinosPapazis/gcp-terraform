@@ -14,4 +14,8 @@
 
 - Verify that load balancer is working.
 
-  
+- Create a custom role with permissions to list only buckets.
+
+- Assign this custom role to your user.
+
+- Create a 3rd VM in the second subnet (subnet-02) and assign the service account created previously.
